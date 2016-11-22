@@ -87,7 +87,27 @@ function boardwalk_entry_meta() {
 	} else {
 		$posted_on = '<a href="' . esc_url( boardwalk_get_link_url() ) . '" rel="bookmark">' . $time_string . '</a>';
 	}
+	
+/*------------------------------------------------------*/	
+		/* Hide category and tag text for pages */
+	if ( 'post' == get_post_type() ) {
+		if ( has_post_format() ) {
+			$format = get_post_format();
+	       echo '<span class="post-format-link"><a class="format-' . $format . '" href="' . esc_url( get_post_format_link( $format ) ) .'" title="' . esc_attr( sprintf( __( 'All %s posts', 'boardwalk' ), get_post_format_string( $format ) ) ) . '">' . get_post_format_string( $format ) . '</a></span>';
+		}
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( __( ', ', 'boardwalk' ) );
+		if ( $categories_list && boardwalk_categorized_blog() ) {
+			printf( '<span class="cat-links">' . __(  'boardwalk' ) . '</span>', $categories_list );
+		}
 
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', __( ', ', 'boardwalk' ) );
+		if ( $tags_list ) {
+			printf( '<span class="tags-links">' . __(  'boardwalk' ) . '</span>', $tags_list );
+		}
+	    }
+/*-----------------------------------------------------------------------*/
 	echo '<span class="posted-on">' . $posted_on . '</span>';
 }
 endif;
