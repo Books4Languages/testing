@@ -5,7 +5,7 @@ Description: Named after Martin Luther, this is a traditional book theme, good f
 Author: Pressbooks (Book Oven Inc.)
 Author URI: http://pressbooks.com
 Copyright 2011-2015 Book Oven Inc. (Pressbooks.com) code@pressbooks.com
-Version: 1.6
+Version: 1.6.1
 */
 @import url("https://fonts.googleapis.com/css?family=Cardo:400,400italic,700|Oswald|Droid+Serif:400,700,400italic,700italic|Open+Sans+Condensed:300,300italic&subset=latin,cyrillic,greek,cyrillic-ext,greek-ext");
 /*
@@ -1213,6 +1213,7 @@ ol li li li::before {
 
 .share-single li {
   float: left;
+  line-height: 1;
   margin: 0 10px 0 0;
   padding: 5px 5px 5px 17px; }
 
@@ -1619,30 +1620,6 @@ code {
     background: #E0E0E0;
     margin-left: -130px;
     margin-top: -10px; } }
-	
-@media screen and (max-width: 940px) {
-	#wrap {
-	        width: 766px;
-	    }
-
-	    #content {
-	        width: 500px;
-	    }
-	    /* Sidebar glued to the right */
-	    #sidebar {
-	        margin-right: 0;
-	    }
-
-	    #booknav {
-	        border-radius: 6px 0px 0px 6px;
-	        box-shadow: -2px 2px 2px #ddd;
-	    }
-	    .footer-table{
-	        max-width: 100%;
-	        padding-left: 25%;
-	    }
-	}
-	
 @media screen and (max-width: 768px) {
   /* Style adjustments for portrait mode goes here */
   .h1.book-title {
